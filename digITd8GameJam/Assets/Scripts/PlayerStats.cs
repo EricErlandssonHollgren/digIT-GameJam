@@ -5,15 +5,19 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public int health;
-    public int armour; 
+    public int damage; //Unused for now
+    public int points; 
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = 100;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void removeHealth(int hp)
+    {
+        health -= hp;
+        Debug.Log(health); 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         
     }
