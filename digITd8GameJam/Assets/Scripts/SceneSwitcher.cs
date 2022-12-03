@@ -11,7 +11,6 @@ public class SceneSwitcher : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            Debug.Log(SceneManager.GetActiveScene().name);
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
                 SceneManager.LoadScene(1);
