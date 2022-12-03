@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/light.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/dark.unity
-    guid: de3b893b0a0bb2546bc6fd580aa5aa72
+    path: Assets/Scenes/EldisScene.unity
+    guid: 82d65d6a7310b427cbf26bd00f58293d
   m_configObjects: {}
