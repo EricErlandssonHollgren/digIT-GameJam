@@ -9,12 +9,15 @@ public class MovingPlatform : MonoBehaviour
     public int startingPoint;
     public Transform[] points;
 
+    private GameObject target;
+    private Vector3 offset;
+
     private int i; // index of the array
     // Start is called before the first frame update
     void Start()
     {
         transform.position = points[startingPoint].position; // start position
-        
+        target = null;
     }
 
     // Update is called once per frame
@@ -28,5 +31,24 @@ public class MovingPlatform : MonoBehaviour
             }
         }
         transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        target = collision.gameObject;
+        offset = target.transform.position - transform.position;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        target = null;
+    }
+
+    private void LateUpdate()
+    {
+        if (target != null)
+        {
+            target.transform.position = transform.position + offset;
+        }
     }
 }
