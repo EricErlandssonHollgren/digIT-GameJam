@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public GameObject dim2;
     public int activeCheckpointIndex;
     public List<GameObject> checkpoints;
+    private bool inAir;
     public int health;
     [SerializeField] private AudioSource _warpSound;
     [SerializeField] private AudioSource _jumpSound;
@@ -62,8 +63,13 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space)) {
             jump = true;
+            
             animator.SetBool("jump", true);
-            _jumpSound.Play();
+            if (!inAir)
+            {
+                _jumpSound.Play();
+            }
+            inAir = true;
         }
         if (Input.GetKeyDown(KeyCode.S)) {
             crouch = true;
@@ -103,6 +109,7 @@ public class PlayerController : MonoBehaviour
     public void OnLand() 
     {
         animator.SetBool("jump", false);
+        inAir = false;
     }
 
     
