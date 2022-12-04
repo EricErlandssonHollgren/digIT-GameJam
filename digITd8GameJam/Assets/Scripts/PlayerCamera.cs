@@ -26,7 +26,7 @@ public class PlayerCamera : MonoBehaviour
     {
         this.target = target;
         yield return new WaitForSeconds(seconds);
-        this.target = player;
+        this.target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
