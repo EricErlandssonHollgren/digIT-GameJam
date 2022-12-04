@@ -15,6 +15,12 @@ public class CollisionOpenGate : MonoBehaviour
     [SerializeField]
     private UnityEvent _collisionExit;
 
+    [SerializeField]
+    private UnityEvent _triggerEntered;
+
+    [SerializeField]
+    private UnityEvent _triggerExit;
+
 
 
 
@@ -27,11 +33,27 @@ public class CollisionOpenGate : MonoBehaviour
 
     }
 
-    private void OnCollisionExit2D(Collision2D col) {
+    void OnCollisionExit2D(Collision2D col) {
         if(col.gameObject.GetComponent(_colliderScript))
         {
             _collisionExit?.Invoke();
         }
         
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.GetComponent(_colliderScript))
+        {
+            _collisionEntered?.Invoke();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.GetComponent(_colliderScript))
+        {
+            _collisionExit?.Invoke();
+        }
     }
 }

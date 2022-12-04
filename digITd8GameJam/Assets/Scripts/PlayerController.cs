@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public int activeCheckpointIndex;
     public List<GameObject> checkpoints;
     public int health;
+    [SerializeField] private AudioSource _warpSound;
+    [SerializeField] private AudioSource _jumpSound;
     
     void Start()
     {
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) {
             jump = true;
             animator.SetBool("jump", true);
+            _jumpSound.Play();
         }
         if (Input.GetKeyDown(KeyCode.S)) {
             crouch = true;
@@ -69,6 +72,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
+            _warpSound.Play();
             StartCoroutine(wait());
             // vol.GetComponent<Animator>().SetTrigger("StopTransition");
         }
