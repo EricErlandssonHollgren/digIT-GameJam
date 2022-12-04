@@ -16,6 +16,19 @@ public class PlayerCamera : MonoBehaviour
         targetPos = transform.position;
     }
 
+    public void ShowObjectForSeconds(GameObject target, float seconds)
+    {
+        var player = target;
+        StartCoroutine(Show(player, target, seconds));
+    }
+
+    IEnumerator Show(GameObject player, GameObject target, float seconds)
+    {
+        this.target = target;
+        yield return new WaitForSeconds(seconds);
+        this.target = GameObject.FindGameObjectWithTag("Player");
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
