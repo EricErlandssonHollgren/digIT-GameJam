@@ -6,7 +6,7 @@
 - Eric "Disco" Erlandsson Hollgren
 
 ## Köra projektet
-Projektet körs genom exe filen på platsen `\exempel\väg\filsomkörsaker.exe`
+Projektet körs genom exe filen på platsen `\digITd8GameJam.exe`
 
 ## Third party
 - Gratis Spritesheets från Unity Asset Store
