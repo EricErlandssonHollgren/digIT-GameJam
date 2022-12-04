@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Gate : MonoBehaviour
 {
-    private Animator _animator;
+    private Animator _animatr;
 
     private void Awake() 
     {
-        _animator = GetComponent<Animator>();
+        _animatr = GetComponent<Animator>();
     }
 
     [ContextMenu("Open")]
     public void Open()
     {
-        _animator.SetTrigger("Open");
+        _animatr.SetTrigger("Open");
     }
 }
